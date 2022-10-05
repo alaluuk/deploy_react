@@ -18,7 +18,7 @@ class MyClass extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h2>MyClass</h2>
                 <input  onChange={this.updateName}/>
                 <p>Hello {this.state.name}</p>

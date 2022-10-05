@@ -2,18 +2,27 @@ import './App.css';
 import MyFunction from './MyFunction';
 import MyHook from './MyHook';
 import MyClass from './MyClass';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>My React Example</h1>
-      <p>Some text</p>
-      <MyFunction fname="Teppo" lname="Testi"/>
-      <MyFunction fname="Lisa" lname="Smith"/>
-      <MyHook fname="Bob"/>
-      <MyClass fname="Matt"/>
-    </div>
-  );
-}
-
+  function App() {
+    return (
+      <Router>
+        <div className='container'>
+          <ul>
+            <li> <Link to="/myfunction">MyFunction</Link> </li>
+            <li> <Link to="/myclass">MyClass</Link> </li>
+            <li> <Link to="/myhook">MyHook</Link>  </li>
+          </ul>
+          <hr />
+        </div>
+        <Routes>
+          <Route exact path="/myfunction" element={<MyFunction fname="Teppo"/>} />
+          <Route exact path="/myclass" element={<MyClass fname="Teppo"/>} />
+          <Route exact path="/myhook" element={<MyHook fname="Teppo"/>} />
+        </Routes>
+      </Router>
+  
+    );
+  }
 export default App;
